@@ -91,7 +91,9 @@ You may be prompted to install ARCore:
 
 2. The first time you run an AR application you'll see a camera permissions prompt:
 
-![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/32d7ef08a7216eb8.png)  |  ![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/92b0afd1dc7915e.png)
+
+
+| <img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/32d7ef08a7216eb8.png" width="30%">  |  <img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/92b0afd1dc7915e.png" width="25%">
 :-------------------------:|:-------------------------:
 
 
