@@ -34,3 +34,7 @@ Until the above list of steps have been fully updated with working links, consid
 * The sample code - Download a [zip](https://github.com/arnaudhambenne/ar-with-webxr/archive/master.zip) or clone this repo
 * A text editor
 * Basic knowledge of HTML, CSS, JavaScript, and [Chrome DevTools](https://developer.chrome.com/devtools)
+
+<br>
+
+<div align="right"><a href="#" align="left">:point_right: 1. Introduction</a></div>

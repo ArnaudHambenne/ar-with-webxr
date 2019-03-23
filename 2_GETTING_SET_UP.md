@@ -105,3 +105,7 @@ Once everything is good to go, there should be a scene of cubes overlayed on top
 > **Important**: For security reasons, the WebXR Device API is only able to run in secure (HTTPS) environments, with an exception made for `localhost` development. If you have issues activating WebXR, ensure you're using a secure document, or a `localhost` URL.
 
 > From this point forward, all testing/verification (e.g. the **Test It Out** sections in subsequent steps) require visiting the link on your AR device.
+
+<br>
+
+<div align="right"><a href="#" align="left">:point_right: 3. State of AR on the web</a></div>

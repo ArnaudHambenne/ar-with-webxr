@@ -34,3 +34,7 @@ In this codelab, you're going to build a web application that places a model in 
 * How to load and render a 3D model synchronized with the real world camera feed
 
 This codelab is focused on augmented reality APIs. Non-relevant concepts and code blocks are glossed over and are provided for you in the corresponding repository code.
+
+<br>
+
+<div align="right"><a href="#" align="left">:point_right: 2. Getting set up</a></div>

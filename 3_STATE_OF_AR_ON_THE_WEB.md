@@ -29,7 +29,7 @@ to use that information to overlay virtual scenes.
 Future explorations may expand upon scene understanding, providing things like light estimation, surfaces, meshes, 
 feature point clouds, and more.
 
-
+<br>
 
 <div align="right"><a href="#" align="left">:point_right: 4. Overview of our AR app</a></div>
 
