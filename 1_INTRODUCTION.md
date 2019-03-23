@@ -17,6 +17,14 @@ In this codelab, you're going to build a web application that places a model in 
 1. Use your device's sensors to determine and track its position and orientation in the world.
 2. Render a 3D model composited on top of a live camera view.
 3. Execute hit tests to place objects on top of discovered surfaces in the real world.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 ---
 ### What you'll learn
 * How to use the WebXR Device API
