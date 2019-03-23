@@ -19,8 +19,8 @@ In this codelab, you're going to build a web application that places a model in 
 3. Execute hit tests to place objects on top of discovered surfaces in the real world.
 ---
 ### What you'll learn
-* :heavy_check_mark: How to use the WebXR Device API
-* :heavy_check_mark: How to find a surface using augmented reality hit tests
-* :heavy_check_mark: How to load and render a 3D model synchronized with the real world camera feed
+* How to use the WebXR Device API
+* How to find a surface using augmented reality hit tests
+* How to load and render a 3D model synchronized with the real world camera feed
 
 This codelab is focused on augmented reality APIs. Non-relevant concepts and code blocks are glossed over and are provided for you in the corresponding repository code.

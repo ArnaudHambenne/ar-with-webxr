@@ -1,13 +1,21 @@
-# Building an augmented reality application with the WebXR Device API
+# Building an augmented reality application with the WebXR Device API [UPDATED]
 
-> ### 🚨 Will not work in latest Chrome Canary 🚨
-> The WebXR Device API is undergoing a lot of changes currently. This codelab will only work in Chrome Canary/Dev versions 70-72.
+> ### 🚨 Updated version built for Chrome 74/75 currently in Dev/Canary 🚨
+> The WebXR Device API is undergoing a lot of changes currently. This codelab will only work in Chrome Canary/Dev versions 74-75.
 
-This code has the resources you need for the codelab [Building an augmented reality application with the WebXR Device API](https://codelabs.developers.google.com/codelabs/ar-with-webxr/#0).
+This code has the **updated** resources you need for the codelab [Building an augmented reality application with the WebXR Device API](https://codelabs.developers.google.com/codelabs/ar-with-webxr/#0). You can follow the updated steps from the list below:
 
-This is a work in progress. If you find a mistake or have a suggestion, please [file an issue](https://github.com/googlecodelabs/ar-with-webxr/issues). Thanks!
+1. [Introduction](https://arnaudhambenne.github.io/ar-with-webxr/1_INTRODUCTION.md)
+2. Getting set up
+3. State of AR on the web
+4. Overview of our AR app
+5. Add a cube to a surface
+6. Use a 3D model from Poly
+7. Add Shadows
+8. Extra Credit and Additional Resources
 
-You can [view the completed web site here](https://googlecodelabs.github.io/ar-with-webxr/final).
+Until the above list of steps have been fully updated with working links, consider this repo a work in progress.
+
 
 ## What you'll learn
 
@@ -20,7 +28,7 @@ You can [view the completed web site here](https://googlecodelabs.github.io/ar-w
 * A workstation for coding and hosting static web content
 * [ARCore-capable Android device](https://developers.google.com/ar/discover/#supported_devices) running [Android 8.0 Oreo](https://www.android.com/versions/oreo-8-0/)
 * ARCore installed (Chrome will automatically prompt you to install ARCore)
-* [Chrome Canary](https://www.google.com/chrome/canary). You'll need a version of Chrome that's 70-72, and use a Canary or Dev build of Chrome (ARCore bindings are not currently shipping in release/beta).
+* [Chrome Dev/Canary](https://www.google.com/chrome/dev). You'll need a version of Chrome that's 74-75, and use a Canary or Dev build of Chrome
 * [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb), or your own web server of choice
 * USB cable to connect your AR device to workstation
 * The sample code - Download a [zip](https://github.com/googlecodelabs/ar-with-webxr/archive/master) or clone this repo
