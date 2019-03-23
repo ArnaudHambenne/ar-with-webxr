@@ -7,7 +7,7 @@ This code has the **updated** resources you need for the codelab [Building an au
 
 1. [Introduction](https://github.com/arnaudhambenne/ar-with-webxr/blob/master/1_INTRODUCTION.md)
 2. [Getting set up](https://github.com/arnaudhambenne/ar-with-webxr/blob/master/2_GETTING_SET_UP.md)
-3. State of AR on the web
+3. [State of AR on the web](https://github.com/arnaudhambenne/ar-with-webxr/blob/master/3_STATE_OF_AR_ON_THE_WEB.md)
 4. Overview of our AR app
 5. Add a cube to a surface
 6. Use a 3D model from Poly
