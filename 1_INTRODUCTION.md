@@ -25,6 +25,8 @@ In this codelab, you're going to build a web application that places a model in 
 <br>
 <br>
 <br>
+<br>
+
 ---
 ### What you'll learn
 * How to use the WebXR Device API
