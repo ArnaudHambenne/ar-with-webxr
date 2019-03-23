@@ -26,11 +26,11 @@ Until the above list of steps have been fully updated with working links, consid
 ## What you'll need
 
 * A workstation for coding and hosting static web content
-* [ARCore-capable Android device](https://developers.google.com/ar/discover/#supported_devices) running at lease [Android 8.0 Oreo](https://www.android.com/versions/oreo-8-0/)
+* [ARCore-capable Android device](https://developers.google.com/ar/discover/#supported_devices) running at least [Android 8.0 Oreo](https://www.android.com/versions/oreo-8-0/)
 * ARCore installed (Chrome will automatically prompt you to install ARCore)
 * [Chrome Dev/Canary](https://www.google.com/chrome/dev). You'll need a version of Chrome that's 74-75, and use a Canary or Dev build of Chrome
 * [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb), or your own web server of choice
 * USB cable to connect your AR device to workstation
-* The sample code - Download a [zip](https://github.com/arnaudhambenne/ar-with-webxr/archive/master) or clone this repo
+* The sample code - Download a [zip](https://github.com/arnaudhambenne/ar-with-webxr/archive/master.zip) or clone this repo
 * A text editor
-* Basic knowledge of HTML, CSS, JavaScript, and Chrome DevTools
+* Basic knowledge of HTML, CSS, JavaScript, and [Chrome DevTools](https://developer.chrome.com/devtools)
