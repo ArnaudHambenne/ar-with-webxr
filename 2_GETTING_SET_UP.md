@@ -29,7 +29,7 @@ At the time of writing, the initial AR features are behind both `webxr` and `web
 7. Set the **WebXR Hit Test** (`#webxr-hit-test`) flag to **Enabled**
 8. Tap RELAUNCH NOW to ensure the updated flags take effect
 
-<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/d1b234e7d6e04a2a.png" width="50%">
+<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/d1b234e7d6e04a2a.png" width="30%">
 
 Visit the link below **on your AR device** to try the first step of this Codelab. If you get a page with a message displaying "Your browser does not have AR features", re-check the version of Chrome and the WebXR flags, which might require a browser restart.
 
@@ -49,16 +49,16 @@ You're free to use your own web server, but we'll walk you through using the Chr
 
 After installing the Web Server for Chrome app, go to chrome://apps and click on the Web Server icon:
 
-![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/dc07bbc9fcfe7c5b.png)
+<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/dc07bbc9fcfe7c5b.png" width="50%">
 
 You'll see this dialog next, which allows you to configure your local web server:
 
-![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/b91087c4a372ee8d.png)
+<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/b91087c4a372ee8d.png">
 
 1. Click the **choose folder** button, and select the `ar-with-webxr-master` folder. This will enable you to serve your work in progress via the URL highlighted in the web server dialog (in the **Web Server URL(s)** section).
 2. Under Options, make sure **Automatically show index.html** is checked.
 3. **STOP** and **RESTART** the server by sliding the toggle labeled Web Server: **STARTED/STOPPED** to the left, and then back to the right.
-![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/daefd30e8a290df5.png)
+<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/daefd30e8a290df5.png" width="30%">
 4. **Verify that at least one Web Server URL(s) appears:**
 * **http://127.0.0.1:8887** — the default localhost URL
 
@@ -68,7 +68,7 @@ Now we also want to configure our AR device such that visiting `localhost:8887` 
 
 Use the **Port forwarding settings** dialog to forward port `8887` to `localhost:8887`. Ensure that **Enable port forwarding** is checked:
 
-![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/8ceaaff488b3161.png)
+<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/8ceaaff488b3161.png" width="50%">
 
 Test your connection:
 
@@ -82,12 +82,12 @@ Your AR device should forward this request to your development workstation's web
 
 You should see page that contains an **ENTER AUGMENTED REALITY** button...  |  However, if you see an **Unsupported Browser** error page, go back and confirm the Chrome Canary version, chrome://flags and restart Chrome.
 :-------------------------:|:-------------------------:
-![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/2960fdfd01572a73.png)  |  ![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/eb923e4c74e0a8a5.png)
-
+![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/2960fdfd01572a73.png)  |  <img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/eb923e4c74e0a8a5.png" width="82%">
 
 1. Once the connection to your web server is working with your AR device, click the **ENTER AUGMENTED REALITY** button.
 You may be prompted to install ARCore:
-![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/d9fa833e7c75fbf8.png)
+<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/d9fa833e7c75fbf8.png" width="40%">
+
 
 2. The first time you run an AR application you'll see a camera permissions prompt:
 
@@ -97,7 +97,8 @@ You may be prompted to install ARCore:
 
 Once everything is good to go, there should be a scene of cubes overlayed on top of a camera feed. The scene understanding improves as more of the world is parsed by the camera, so some moving around can help stabilize things.
 
-![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/53edad20e6426c9c.png)
+<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/53edad20e6426c9c.png" width="85%">
+
 
 > **Important**: For security reasons, the WebXR Device API is only able to run in secure (HTTPS) environments, with an exception made for `localhost` development. If you have issues activating WebXR, ensure you're using a secure document, or a `localhost` URL.
 
