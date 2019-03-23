@@ -30,8 +30,7 @@ Future explorations may expand upon scene understanding, providing things like l
 feature point clouds, and more.
 
 
-<div align="right"><a href="#" align="left">back</a></div>
 
-
-<a href="#" align="left">back</a><a href="#" align="right">front</a>
+<div align="left"><a href="#" align="left">back</a></div>
+<div align="right"><a href="#" align="left">front</a></div>
 
