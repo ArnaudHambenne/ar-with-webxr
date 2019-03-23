@@ -3,7 +3,7 @@ This codelab will go through an example of building an AR web application. It us
 
 You will use the still-in-development [WebXR Device API](https://immersive-web.github.io/webxr/), (the successor to the [WebVR API](https://developer.mozilla.org/en-US/docs/Web/API/WebVR_API)), that combines both augmented reality (AR) and virtual reality (VR) functionality. We'll be focusing on experimental AR extensions to the WebXR Device API that are being developed in Chrome.
 
-![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/3f852a07a7a280d6.png)
+<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/3f852a07a7a280d6.png" width="80%">
 
 ### What is Augmented Reality?
 Augmented reality (AR) is a term usually used to describe the mixing of computer-generated graphics with the real world, which, in the case of phone-based Augmented Reality, means convincingly placing computer graphics over a live camera feed. In order for this effect to remain convincing as the phone moves through the world, the AR-enabled device needs to understand the world it is moving through, which may include detecting surfaces and estimating lighting of the environment. Additionally, the device also needs to determine its "pose" (position and orientation) in 3D space.
