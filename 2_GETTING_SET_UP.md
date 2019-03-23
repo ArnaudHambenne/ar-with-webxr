@@ -49,7 +49,7 @@ You're free to use your own web server, but we'll walk you through using the Chr
 
 After installing the Web Server for Chrome app, go to chrome://apps and click on the Web Server icon:
 
-<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/dc07bbc9fcfe7c5b.png" width="50%">
+<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/dc07bbc9fcfe7c5b.png" width="10%">
 
 You'll see this dialog next, which allows you to configure your local web server:
 
@@ -68,7 +68,7 @@ Now we also want to configure our AR device such that visiting `localhost:8887` 
 
 Use the **Port forwarding settings** dialog to forward port `8887` to `localhost:8887`. Ensure that **Enable port forwarding** is checked:
 
-<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/8ceaaff488b3161.png" width="50%">
+<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/8ceaaff488b3161.png" width="40%">
 
 Test your connection:
 
