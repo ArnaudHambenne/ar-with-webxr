@@ -31,5 +31,5 @@ feature point clouds, and more.
 
 
 
-<div align="left"><a href="#" align="left">back</a></div><div align="right"><a href="#" align="left">front</a></div>
+<div align="right"><a href="#" align="left">4. Overview of our AR app :arrow_right:</a></div>
 
