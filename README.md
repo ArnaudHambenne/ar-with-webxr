@@ -5,8 +5,8 @@
 
 This code has the **updated** resources you need for the codelab [Building an augmented reality application with the WebXR Device API](https://codelabs.developers.google.com/codelabs/ar-with-webxr/#0). You can follow the updated steps from the list below:
 
-1. [Introduction](https://github.com/arnaudhambenne/ar-with-webxr/1_INTRODUCTION.md)
-2. [Getting set up](https://github.com/arnaudhambenne/ar-with-webxr/2_GETTING_SET_UP.md)
+1. [Introduction](https://github.com/arnaudhambenne/ar-with-webxr/blob/master/1_INTRODUCTION.md)
+2. [Getting set up](https://github.com/arnaudhambenne/ar-with-webxr/blob/master/2_GETTING_SET_UP.md)
 3. State of AR on the web
 4. Overview of our AR app
 5. Add a cube to a surface
