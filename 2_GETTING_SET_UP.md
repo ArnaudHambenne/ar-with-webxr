@@ -1,9 +1,9 @@
 # 2. Getting set up
-#### :heavy_exclamation_mark: **Will only work in Chrome 74 or higher** :heavy_exclamation_mark:
+##### :heavy_exclamation_mark: **Will only work in Chrome 74 or higher** :heavy_exclamation_mark:
 
 The WebXR Device API is undergoing a lot of changes currently. This codelab will only work in Chrome versions 74 and up.
 
-### What you'll need
+#### What you'll need
 This is an overview of what you'll need, and we'll go into more detail shortly.
 
 * A workstation for coding and hosting static web content
@@ -16,7 +16,7 @@ This is an overview of what you'll need, and we'll go into more detail shortly.
 * A text editor
 * Basic knowledge of HTML, CSS, JavaScript, and [Chrome DevTools](https://developer.chrome.com/devtools)
 
-### Ensure AR features are enabled on Chrome
+#### Ensure AR features are enabled on Chrome
 At the time of writing, the initial AR features are behind both `webxr` and `webxr-hit-test` flags. To enable WebXR augmented reality support in Chrome:
 
 1. Verify that you're running at least [Android 8.0 Oreo](https://www.android.com/versions/oreo-8-0/)
@@ -35,14 +35,14 @@ Visit the link below **on your AR device** to try the first step of this Codelab
 
 [TRY IT](https://arnaudhambenne.github.io/ar-with-webxr/work/)
 
-### Download the Code
+#### Download the Code
 Click the following link to download all the code for this codelab **on your workstation**:
 
 [Download source code](https://github.com/arnaudhambenne/ar-with-webxr/archive/master.zip)
 
 Unpack the downloaded zip file. This will unpack a root folder (`ar-with-webxr-master`), which contains directories of several steps of this codelab, along with all the resources you need. The `step-05` and `step-06` folders contain the desired end state of the 5th and 6th steps of this codelab, as well as the `final` result. They are there for reference. We'll be doing all our coding work in a directory called `work`.
 
-### Install and verify web server
+#### Install and verify web server
 You're free to use your own web server, but we'll walk you through using the Chrome Web Server if you don't have one set up. If you don't have that app installed **on your workstation** yet, you can install it from the Chrome Web Store.
 
 [Install Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en)
@@ -93,7 +93,7 @@ You may be prompted to install ARCore:
 
 
 
-| <img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/32d7ef08a7216eb8.png" width="30%">  |  <img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/92b0afd1dc7915e.png" width="25%">
+| <img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/32d7ef08a7216eb8.png" width="60%">  |  <img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/92b0afd1dc7915e.png" width="46%">
 :-------------------------:|:-------------------------:
 
 
