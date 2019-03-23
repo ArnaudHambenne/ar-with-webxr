@@ -108,4 +108,4 @@ Once everything is good to go, there should be a scene of cubes overlayed on top
 
 <br>
 
-<div align="right"><a href="#" align="left">:point_right: 3. State of AR on the web</a></div>
+<div align="right"><a href="https://github.com/arnaudhambenne/ar-with-webxr/blob/master/3_STATE_OF_AR_ON_THE_WEB.md" align="left">:point_right: State of AR on the web</a></div>

@@ -31,5 +31,5 @@ feature point clouds, and more.
 
 <br>
 
-<div align="right"><a href="#" align="left">:point_right: 4. Overview of our AR app</a></div>
+<div align="right"><a href="#" align="left">:point_right: Overview of our AR app</a></div>
 

@@ -37,4 +37,4 @@ This codelab is focused on augmented reality APIs. Non-relevant concepts and cod
 
 <br>
 
-<div align="right"><a href="#" align="left">:point_right: 2. Getting set up</a></div>
+<div align="right"><a href="https://github.com/arnaudhambenne/ar-with-webxr/blob/master/2_GETTING_SET_UP.md" align="left">:point_right: Getting set up</a></div>

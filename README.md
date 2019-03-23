@@ -37,4 +37,4 @@ Until the above list of steps have been fully updated with working links, consid
 
 <br>
 
-<div align="right"><a href="#" align="left">:point_right: 1. Introduction</a></div>
+<div align="right"><a href="https://github.com/arnaudhambenne/ar-with-webxr/blob/master/1_INTRODUCTION.md" align="left">:point_right: Introduction</a></div>
