@@ -1,7 +1,7 @@
 # 2. Getting set up
-#### :heavy_exclamation_mark: **Will only work in latest Chrome Dev/Canary (74/75)** :heavy_exclamation_mark:
+#### :heavy_exclamation_mark: **Will only work in Chrome 74 or higher** :heavy_exclamation_mark:
 
-The WebXR Device API is undergoing a lot of changes currently. This codelab will only work in Chrome Canary/Dev versions 74-75.
+The WebXR Device API is undergoing a lot of changes currently. This codelab will only work in Chrome versions 74 and up.
 
 ### What you'll need
 This is an overview of what you'll need, and we'll go into more detail shortly.
@@ -9,7 +9,7 @@ This is an overview of what you'll need, and we'll go into more detail shortly.
 * A workstation for coding and hosting static web content
 * [ARCore-capable Android device](https://developers.google.com/ar/discover/#supported_devices) running at least [Android 8.0 Oreo](https://www.android.com/versions/oreo-8-0/)
 * [ARCore](https://play.google.com/store/apps/details?id=com.google.ar.core) installed (Chrome will automatically prompt you to install ARCore)
-* [Chrome Dev/Canary](https://www.google.com/chrome/dev). You'll need a version of Chrome that's 74-75, and use a Canary or Dev build of Chrome
+* [Chrome 74 or higher](https://www.google.com/chrome/beta). You'll need a version of Chrome that's 74 or higher, and use a Beta, Dev or Canary build of Chrome
 * [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb), or your own web server of choice
 * USB cable to connect your AR device to workstation
 * [The sample code](https://github.com/arnaudhambenne/ar-with-webxr/archive/master.zip)
@@ -29,9 +29,9 @@ At the time of writing, the initial AR features are behind both `webxr` and `web
 7. Set the **WebXR Hit Test** (`#webxr-hit-test`) flag to **Enabled**
 8. Tap RELAUNCH NOW to ensure the updated flags take effect
 
-![](https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/d1b234e7d6e04a2a.png)
+<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/d1b234e7d6e04a2a.png" width="50%">
 
-Visit the link below **on your AR device** to try the first step of this Codelab. If you get a page with a message displaying "Your browser does not have AR features", re-check the version of Chrome Canary and the WebXR flags, which might require a browser restart.
+Visit the link below **on your AR device** to try the first step of this Codelab. If you get a page with a message displaying "Your browser does not have AR features", re-check the version of Chrome and the WebXR flags, which might require a browser restart.
 
 [TRY IT](https://arnaudhambenne.github.io/ar-with-webxr/work/)
 

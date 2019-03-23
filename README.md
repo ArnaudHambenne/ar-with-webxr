@@ -1,12 +1,12 @@
 # [UPDATED] Building an augmented reality application with the WebXR Device API
 
-> ### 🚨 Updated version built for Chrome 74/75 currently in Dev/Canary 🚨
-> The WebXR Device API is undergoing a lot of changes currently. This codelab will only work in Chrome Canary/Dev versions 74-75.
+> ### 🚨 Updated version built for Chrome 74 and up 🚨
+> The WebXR Device API is undergoing a lot of changes currently. This codelab will only work in Chrome 74 and up.
 
 This code has the **updated** resources you need for the codelab [Building an augmented reality application with the WebXR Device API](https://codelabs.developers.google.com/codelabs/ar-with-webxr/#0). You can follow the updated steps from the list below:
 
 1. [Introduction](https://arnaudhambenne.github.io/ar-with-webxr/1_INTRODUCTION.md)
-2. Getting set up
+2. [Getting set up](https://arnaudhambenne.github.io/ar-with-webxr/2_GETTING_SET_UP.md)
 3. State of AR on the web
 4. Overview of our AR app
 5. Add a cube to a surface
@@ -28,7 +28,7 @@ Until the above list of steps have been fully updated with working links, consid
 * A workstation for coding and hosting static web content
 * [ARCore-capable Android device](https://developers.google.com/ar/discover/#supported_devices) running at least [Android 8.0 Oreo](https://www.android.com/versions/oreo-8-0/)
 * ARCore installed (Chrome will automatically prompt you to install ARCore)
-* [Chrome Dev/Canary](https://www.google.com/chrome/dev). You'll need a version of Chrome that's 74-75, and use a Canary or Dev build of Chrome
+* [Chrome 74 or higher](https://www.google.com/chrome/beta). You'll need a version of Chrome that's 74 or higher, and use a Beta, Dev or Canary build of Chrome
 * [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb), or your own web server of choice
 * USB cable to connect your AR device to workstation
 * The sample code - Download a [zip](https://github.com/arnaudhambenne/ar-with-webxr/archive/master.zip) or clone this repo
