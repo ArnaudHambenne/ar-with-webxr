@@ -21,6 +21,7 @@ class App {
   constructor() {
     this.onXRFrame = this.onXRFrame.bind(this);
     this.onEnterAR = this.onEnterAR.bind(this);
+    this.onSessionStarted = this.onSessionStarted.bind(this);
 
     this.init();
   }
@@ -72,11 +73,10 @@ class App {
     // gesture, we must create an XRPresentationContext on a
     // canvas element.
     const outputCanvas = document.createElement('canvas');
-    const ctx = outputCanvas.getContext('xrpresent');
+    this.ctx = outputCanvas.getContext('xrpresent');
 
     try {
-      // Request a session with the XRPresentationContext
-      // we just created.
+      // Request a session with 'legacy-inline-ar' as the mode option.
       // Note that `navigator.xr.requestSession()` must be called in response to
       // a user gesture, hence this function being a click handler.
       const session = await navigator.xr.requestSession({
@@ -90,7 +90,7 @@ class App {
     } catch (e) {
       // If `requestSession` fails, the legacy-inline-ar mode is not supported, and we
       // call our function for unsupported browsers.
-      this.onNoXRDevice();
+      this.onNoXR();
     }
   }
 
@@ -125,11 +125,14 @@ class App {
 
     // Ensure that the context we want to write to is compatible
     // with our XRDevice
-    await this.gl.setCompatibleXRDevice(this.session.device);
+    await this.gl.makeXRCompatible();
 
     // Set our session's baseLayer to an XRWebGLLayer
     // using our new renderer's context
-    this.session.baseLayer = new XRWebGLLayer(this.session, this.gl);
+    this.session.updateRenderState({
+      baseLayer: new XRWebGLLayer(this.session, this.gl),
+      outputContext: this.ctx
+    });
 
     // A THREE.Scene contains the scene graph for all objects in the
     // render scene.
@@ -143,7 +146,8 @@ class App {
     this.camera = new THREE.PerspectiveCamera();
     this.camera.matrixAutoUpdate = false;
 
-    this.frameOfRef = await this.session.requestFrameOfReference('eye-level');
+    this.refSpace = this.session.requestReferenceSpace({type: 'stationary', subtype: 'eye-level'});
+
     this.session.requestAnimationFrame(this.onXRFrame);
   }
 
@@ -153,26 +157,26 @@ class App {
    */
   onXRFrame(time, frame) {
     let session = frame.session;
-    let pose = frame.getDevicePose(this.frameOfRef);
+    let viewerPose = frame.getViewerPose(this.refSpace);
 
     // Queue up the next frame
     session.requestAnimationFrame(this.onXRFrame);
 
     // Bind the framebuffer to our baseLayer's framebuffer
-    this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, this.session.baseLayer.framebuffer);
+    this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, this.session.renderState.baseLayer.framebuffer);
 
-    if (pose) {
+    if (viewerPose) {
       // Our XRFrame has an array of views. In the VR case, we'll have
       // two views, one for each eye. In mobile AR, however, we only
       // have one view.
-      for (let view of frame.views) {
-        const viewport = session.baseLayer.getViewport(view);
+      for (let view of viewerPose.views) {
+        const viewport = session.renderState.baseLayer.getViewport(view);
         this.renderer.setSize(viewport.width, viewport.height);
 
         // Set the view matrix and projection matrix from XRDevicePose
         // and XRView onto our THREE.Camera.
         this.camera.projectionMatrix.fromArray(view.projectionMatrix);
-        const viewMatrix = new THREE.Matrix4().fromArray(pose.getViewMatrix(view));
+        const viewMatrix = new THREE.Matrix4().fromArray(view.viewMatrix);
         this.camera.matrix.getInverse(viewMatrix);
         this.camera.updateMatrixWorld(true);
 

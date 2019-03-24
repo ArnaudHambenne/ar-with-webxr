@@ -95,34 +95,34 @@ class App {
 
 > Even though the WebXR Device API may be supported in a browser, there may not be any support for every session mode. For example, a desktop browser may implement the API, but not have any connected VR or AR hardware to support an experience. Read more about device enumeration in the [WebXR Device API specification](https://immersive-web.github.io/webxr/#deviceenumeration).
 
-We want the output of the session to be displayed on the page, so we must create an XRPresentationContext, similar to how we'd create a WebGLRenderingContext if we were rendering our own WebGL content.
+We want the output of the session to be displayed on the page, so we must create an [`XRPresentationContext`](https://immersive-web.github.io/webxr/#xrpresentationcontext), similar to how we'd create a [`WebGLRenderingContext`](https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext) if we were rendering our own WebGL content.
 
 ```javascript
 class App {
   ...
   async onEnterAR() {
     const outputCanvas = document.createElement('canvas');
-    const ctx = outputCanvas.getContext('xrpresent');
+    this.ctx = outputCanvas.getContext('xrpresent');
     
     try {
-      const session = await this.device.requestSession({
-        outputContext: ctx,
-        environmentIntegration: true,
+      const session = await navigator.xr.requestSession({
+        mode: 'legacy-inline-ar'
       });
       document.body.appendChild(outputCanvas);
       this.onSessionStarted(session);
     } catch (e) {
-      this.onNoXRDevice();
+      this.onNoXR();
     }
   }
 }
 ```
 
-Calling getContext('xrpresent') on our canvas returns an XRPresentationContext, which is the context that will be displayed on our XR device. Then we request a session via requestSession() on the XR device with our output presentation context, as well as the environmentIntegration flag indicating we want to use AR features, and then await the promise.
+Calling `getContext('xrpresent')` on our canvas returns an `XRPresentationContext`, which is the context that will be displayed on our XR device. Then we request a session via `requestSession()` on the XR device with our desired mode as the `mode` option.
 
-Upon success, we append the canvas to the DOM and call our this.onSessionStarted()function with our newly created XRSession.
-If the request fails, we fallback and call our function that displays the unsupported browser message, this.onNoXRDevice().
-Important: Before calling device.requestSession(), we should call device.supportsSession() with our options to see if our configuration is supported.
+* Upon success, we append the canvas to the DOM and call our `this.onSessionStarted()` function with our newly created [`XRSession`](https://immersive-web.github.io/webxr/#xrsession-interface).
+* If the request fails, we fallback and call our function that displays the unsupported browser message, this.onNoXR().
+
+> Important: Before calling `navigator.xr.requestSession()`, we should call `navigator.xr.supportsSessionMode()` with our options to see if our configuration is supported.
 
 Once we have our XRSession, we're ready to set up the rendering with three.js and kick off our animation loop. We create a three.js WebGLRenderer, which contains our second canvas, ensuring alpha and preserveDrawingBuffer are set to true and disabling auto clear. We use the WebGLRenderingContext from three and asynchronously set the compatible XR device. Once the context is considered compatible with the device, we can create an XRWebGLLayer and set it as the XRSession's baseLayer. This tells our session that we want to use this context to draw our scene, to subsequently be displayed on the canvas created in this.init(), composited with our live camera feed.
 
@@ -199,10 +199,10 @@ class App {
 
 And that's it! We've walked through the code that fetches an XRDevice, creates an XRSession, and renders a scene on each frame, updating our virtual camera's pose with our device's estimated physical pose.
 
-Test it out
+### Test it out
 Now that you've looked through the code, let's see our boilerplate in action! We already visited this site during setup, but let's take a look now that we've walked through the code. You should see your camera feed with cubes floating in space whose perspective changes as you move your device. Tracking improves the more you move around, so explore what works for you and your device.
 
+<img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/53edad20e6426c9c.png" width="85%">
 
 
-
-If you run into any issues running this app, check the Introduction and Getting set up.
+If you run into any issues running this app, check the [Introduction]() and [Getting set up]().
