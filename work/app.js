@@ -21,12 +21,13 @@ class App {
   constructor() {
     this.onXRFrame = this.onXRFrame.bind(this);
     this.onEnterAR = this.onEnterAR.bind(this);
+    this.onSessionStarted = this.onSessionStarted.bind(this);
 
     this.init();
   }
 
   /**
-   * Fetches the XRDevice, if available.
+   * Checks the availability of XR and the session mode for support.
    */
   async init() {
     // The entry point of the WebXR Device API is on `navigator.xr`.
@@ -34,25 +35,31 @@ class App {
     // indicating that the #webxr-hit-test flag is enabled.
     if (navigator.xr && XRSession.prototype.requestHitTest) {
       try {
-        this.device = await navigator.xr.requestDevice();
+        // The WebXR Device API supports different kinds of modes.
+        // The available options are 'inline', 'legacy-inline-ar',
+        // 'immersive-vr' and 'immersive-ar'. For this tutorial,
+        // we will be using the 'legacy-inline-ar' mode, as the
+        // 'immersive-ar' mode is currently under development and
+        // not yet supported.
+        await navigator.xr.supportsSessionMode('legacy-inline-ar')
       } catch (e) {
-        // If there are no valid XRDevice's on the system,
-        // `requestDevice()` rejects the promise. Catch our
+        // If 'legacy-inline-ar' is not supported on the system,
+        // `supportsSessionMode()` rejects the promise. Catch our
         // awaited promise and display message indicating there
-        // are no valid devices.
-        this.onNoXRDevice();
+        // is no valid XR support.
+        this.onNoXR();
         return;
       }
     } else {
       // If `navigator.xr` or `XRSession.prototype.requestHitTest`
       // does not exist, we must display a message indicating there
       // are no valid devices.
-      this.onNoXRDevice();
+      this.onNoXR();
       return;
     }
 
-    // We found an XRDevice! Bind a click listener on our "Enter AR" button
-    // since the spec requires calling `device.requestSession()` within a
+    // Bind a click listener on our "Enter AR" button
+    // since the spec requires calling `navigator.xr.requestSession()` within a
     // user gesture.
     document.querySelector('#enter-ar').addEventListener('click', this.onEnterAR);
   }
@@ -66,16 +73,14 @@ class App {
     // gesture, we must create an XRPresentationContext on a
     // canvas element.
     const outputCanvas = document.createElement('canvas');
-    const ctx = outputCanvas.getContext('xrpresent');
+    this.ctx = outputCanvas.getContext('xrpresent');
 
     try {
-      // Request a session for the XRDevice with the XRPresentationContext
-      // we just created.
-      // Note that `device.requestSession()` must be called in response to
+      // Request a session with 'legacy-inline-ar' as the mode option.
+      // Note that `navigator.xr.requestSession()` must be called in response to
       // a user gesture, hence this function being a click handler.
-      const session = await this.device.requestSession({
-        outputContext: ctx,
-        environmentIntegration: true,
+      const session = await navigator.xr.requestSession({
+        mode: 'legacy-inline-ar'
       });
 
       // If `requestSession` is successful, add the canvas to the
@@ -83,9 +88,9 @@ class App {
       document.body.appendChild(outputCanvas);
       this.onSessionStarted(session)
     } catch (e) {
-      // If `requestSession` fails, the canvas is not added, and we
+      // If `requestSession` fails, the legacy-inline-ar mode is not supported, and we
       // call our function for unsupported browsers.
-      this.onNoXRDevice();
+      this.onNoXR();
     }
   }
 
@@ -93,7 +98,7 @@ class App {
    * Toggle on a class on the page to disable the "Enter AR"
    * button and display the unsupported browser message.
    */
-  onNoXRDevice() {
+  onNoXR() {
     document.body.classList.add('unsupported');
   }
 
@@ -120,11 +125,14 @@ class App {
 
     // Ensure that the context we want to write to is compatible
     // with our XRDevice
-    await this.gl.setCompatibleXRDevice(this.session.device);
+    await this.gl.makeXRCompatible();
 
     // Set our session's baseLayer to an XRWebGLLayer
     // using our new renderer's context
-    this.session.baseLayer = new XRWebGLLayer(this.session, this.gl);
+    this.session.updateRenderState({
+      baseLayer: new XRWebGLLayer(this.session, this.gl),
+      outputContext: this.ctx
+    });
 
     // A THREE.Scene contains the scene graph for all objects in the
     // render scene.
@@ -138,7 +146,8 @@ class App {
     this.camera = new THREE.PerspectiveCamera();
     this.camera.matrixAutoUpdate = false;
 
-    this.frameOfRef = await this.session.requestFrameOfReference('eye-level');
+    this.refSpace = this.session.requestReferenceSpace({type: 'stationary', subtype: 'eye-level'});
+
     this.session.requestAnimationFrame(this.onXRFrame);
   }
 
@@ -148,26 +157,26 @@ class App {
    */
   onXRFrame(time, frame) {
     let session = frame.session;
-    let pose = frame.getDevicePose(this.frameOfRef);
+    let viewerPose = frame.getViewerPose(this.refSpace);
 
     // Queue up the next frame
     session.requestAnimationFrame(this.onXRFrame);
 
     // Bind the framebuffer to our baseLayer's framebuffer
-    this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, this.session.baseLayer.framebuffer);
+    this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, this.session.renderState.baseLayer.framebuffer);
 
-    if (pose) {
+    if (viewerPose) {
       // Our XRFrame has an array of views. In the VR case, we'll have
       // two views, one for each eye. In mobile AR, however, we only
       // have one view.
-      for (let view of frame.views) {
-        const viewport = session.baseLayer.getViewport(view);
+      for (let view of viewerPose.views) {
+        const viewport = session.renderState.baseLayer.getViewport(view);
         this.renderer.setSize(viewport.width, viewport.height);
 
         // Set the view matrix and projection matrix from XRDevicePose
         // and XRView onto our THREE.Camera.
         this.camera.projectionMatrix.fromArray(view.projectionMatrix);
-        const viewMatrix = new THREE.Matrix4().fromArray(pose.getViewMatrix(view));
+        const viewMatrix = new THREE.Matrix4().fromArray(view.viewMatrix);
         this.camera.matrix.getInverse(viewMatrix);
         this.camera.updateMatrixWorld(true);
 

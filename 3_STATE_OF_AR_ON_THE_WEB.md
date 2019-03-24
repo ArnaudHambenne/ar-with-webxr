@@ -1,5 +1,5 @@
 # 3. State of AR on the web
-#### History
+### History
 [WebGL](https://developer.mozilla.org/docs/Web/API/WebGL_API) is a powerful graphics library enabling the rendering of 
 3D content on the web, but access to VR devices from the web are necessary for discovery, refresh rate synchronization 
 and positioning. The experimental [WebVR 1.1 API](https://developer.mozilla.org/en-US/docs/Web/API/WebVR_API) has been 
@@ -15,13 +15,13 @@ still in-development and subject to change, the core of the WebXR Device API is 
 by representatives from all major browser vendors. The API supports VR experiences, with initial AR proposals just now 
 being prototyped and explored.
 
-#### Implementation
+### Implementation
 The first implementation of the WebXR Device API were made available in Chrome 67 behind a flag (`#webxr`) and as an 
 [origin trial](https://github.com/GoogleChrome/OriginTrials). The initial experimental AR features are in Chrome 70+ 
 behind a flag, `#webxr-hit-test`. At the time of writing, all browsers with Web**VR** implementations have committed to 
 supporting the Web**XR** Device API in the future.
 
-#### The Future
+### The Future
 The only scene understanding currently available to the browser is a "hit test" feature. This allows you to cast a ray 
 out from the device, for example based on a user screen tap, and return any collisions with the real world, allowing us 
 to use that information to overlay virtual scenes.
