@@ -32,18 +32,7 @@ class App {
     // The entry point of the WebXR Device API is on `navigator.xr`.
     // We also want to ensure that `XRSession` has `requestHitTest`,
     // indicating that the #webxr-hit-test flag is enabled.
-    if (navigator.xr && XRSession.prototype.requestHitTest) {
-      try {
-        this.device = await navigator.xr.requestDevice();
-      } catch (e) {
-        // If there are no valid XRDevice's on the system,
-        // `requestDevice()` rejects the promise. Catch our
-        // awaited promise and display message indicating there
-        // are no valid devices.
-        this.onNoXRDevice();
-        return;
-      }
-    } else {
+    if (!(navigator.xr && XRSession.prototype.requestHitTest)) {
       // If `navigator.xr` or `XRSession.prototype.requestHitTest`
       // does not exist, we must display a message indicating there
       // are no valid devices.
@@ -51,8 +40,8 @@ class App {
       return;
     }
 
-    // We found an XRDevice! Bind a click listener on our "Enter AR" button
-    // since the spec requires calling `device.requestSession()` within a
+    // Bind a click listener on our "Enter AR" button
+    // since the spec requires calling `navigator.xr.requestSession()` within a
     // user gesture.
     document.querySelector('#enter-ar').addEventListener('click', this.onEnterAR);
   }
@@ -69,13 +58,12 @@ class App {
     const ctx = outputCanvas.getContext('xrpresent');
 
     try {
-      // Request a session for the XRDevice with the XRPresentationContext
+      // Request a session with the XRPresentationContext
       // we just created.
-      // Note that `device.requestSession()` must be called in response to
+      // Note that `navigator.xr.requestSession()` must be called in response to
       // a user gesture, hence this function being a click handler.
-      const session = await this.device.requestSession({
-        outputContext: ctx,
-        environmentIntegration: true,
+      const session = await navigator.xr.requestSession({
+        mode: 'legacy-inline-ar'
       });
 
       // If `requestSession` is successful, add the canvas to the
@@ -83,7 +71,7 @@ class App {
       document.body.appendChild(outputCanvas);
       this.onSessionStarted(session)
     } catch (e) {
-      // If `requestSession` fails, the canvas is not added, and we
+      // If `requestSession` fails, the legacy-inline-ar mode is not supported, and we
       // call our function for unsupported browsers.
       this.onNoXRDevice();
     }
