@@ -3,7 +3,7 @@ We've provided an HTML page with CSS styling and JavaScript for enabling basic A
 
 > We've given you the markup and styles to save you some time and make sure you're starting on a solid foundation. In the next section, you'll have an opportunity to write your own code. If you're familiar with the WebXR Device API or want to get right to the augmented reality features, continue to the next section.
 
-#### The HTML page
+### The HTML page
 We're building an AR experience into a traditional webpage using existing web technologies. In this specific experience, we'll use a full screen rendering canvas, so our HTML file doesn't need to have too much complexity. The CSS ensures the `<canvas>` injected by our graphics library is fullscreen. The HTML page loads the scripts.
 
 AR features require a user gesture to initiate, so there are some [Material Design Lite](https://getmdl.io/) elements for displaying the "Start AR" button, and the unsupported browser message.
@@ -33,7 +33,7 @@ The `index.html` file that is already in your `work` directory should look somet
 </html>
 ```
 
-#### Check out the key JavaScript code
+### Check out the key JavaScript code
 Our app consists of using the 3D JavaScript library [three.js](http://threejs.org/), some utilities and all of our WebXR/app-specific code in `app.js`. Let's walk through our app's boilerplate.
 
 > This boilerplate uses async functions. If you're unfamiliar with async functions, check out this great Web Fundamentals article, [Async functions - making promises friendly](https://developers.google.com/web/fundamentals/primers/async-functions).
@@ -54,7 +54,7 @@ class App {
     ...
   }
 
-  onNoXRDevice() {
+  onNoXR() {
     ...
   }
 
@@ -72,25 +72,19 @@ window.app = new App();
 
 We instantiate our app and store it as `window.app` for convenience while using [Chrome DevTools](https://developer.chrome.com/devtools) to debug.
 
-Our constructor calls `this.init()` which is an async function that will start up our XRSession for working with AR. This function checks for the existence of navigator.xr, the entry point for the WebXR Device API, as well as XRSession.prototype.requestHitTest, the AR feature enabled by the webxr-hit-test Chrome flag.
+Our constructor calls `this.init()` which is an async function that will start up our [XRSession](https://immersive-web.github.io/webxr/#xrsession-interface) for working with AR. This function checks for the existence of `navigator.xr`, the entry point for the WebXR Device API, as well as `XRSession.prototype.requestHitTest`, the AR feature enabled by the `webxr-hit-test` Chrome flag.
 
-If both objects exist, we can request a device, via navigator.xr.requestDevice() which returns a promise that resolves with an XRDevice, or rejects if none is found.
-If navigator.xr doesn't exist, XRSession.prototype.requestHitTest doesn't exist, or if we get a rejected promise because there's no valid XRDevice, then we call this.onNoXRDevice() which displays a message indicating lack of AR support.
+* If `navigator.xr` doesn't exist or `XRSession.prototype.requestHitTest` doesn't exist, then we call `this.onNoXR()` which displays a message indicating lack of AR support.
+  * *note: the previous version of this tutorial used `navigator.xr.requestDevice()`, which has since been moved to the `XRSession` object.*
+
 If all is well, we bind a click listener on our "Enter Augmented Reality" button to attempt to create an XR session when the user clicks the button.
 
 ```javascript
 class App {
   ...
   async init() {
-    if (navigator.xr && XRSession.prototype.requestHitTest) {
-      try {
-        this.device = await navigator.xr.requestDevice();
-      } catch (e) {
-        this.onNoXRDevice();
-        return;
-      }
-    } else {
-      this.onNoXRDevice();
+    if (!(navigator.xr && XRSession.prototype.requestHitTest)) {
+      this.onNoXR();
       return;
     }
 
@@ -99,9 +93,7 @@ class App {
 }
 ```
 
-Even though the WebXR Device API may be supported in a browser, there may not be any valid XRDevices. For example, a desktop browser may implement the API, but not have any connected VR or AR hardware to support an experience. Read more about device enumeration in the WebXR Device API specification.
-
-When we do find an XRDevice, we store it as this.device. In order to interact with the device, we need to request an XRSession from it. An XRDevice can have multiple XRSessions, where each session exposes the device pose, the user's environment and handles rendering to device.
+> Even though the WebXR Device API may be supported in a browser, there may not be any support for every session mode. For example, a desktop browser may implement the API, but not have any connected VR or AR hardware to support an experience. Read more about device enumeration in the [WebXR Device API specification](https://immersive-web.github.io/webxr/#deviceenumeration).
 
 We want the output of the session to be displayed on the page, so we must create an XRPresentationContext, similar to how we'd create a WebGLRenderingContext if we were rendering our own WebGL content.
 

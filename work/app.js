@@ -26,17 +26,34 @@ class App {
   }
 
   /**
-   * Fetches the XRDevice, if available.
+   * Checks the availability of XR and the session mode for support.
    */
   async init() {
     // The entry point of the WebXR Device API is on `navigator.xr`.
     // We also want to ensure that `XRSession` has `requestHitTest`,
     // indicating that the #webxr-hit-test flag is enabled.
-    if (!(navigator.xr && XRSession.prototype.requestHitTest)) {
+    if (navigator.xr && XRSession.prototype.requestHitTest) {
+      try {
+        // The WebXR Device API supports different kinds of modes.
+        // The available options are 'inline', 'legacy-inline-ar',
+        // 'immersive-vr' and 'immersive-ar'. For this tutorial,
+        // we will be using the 'legacy-inline-ar' mode, as the
+        // 'immersive-ar' mode is currently under development and
+        // not yet supported.
+        await navigator.xr.supportsSessionMode('legacy-inline-ar')
+      } catch (e) {
+        // If 'legacy-inline-ar' is not supported on the system,
+        // `supportsSessionMode()` rejects the promise. Catch our
+        // awaited promise and display message indicating there
+        // is no valid XR support.
+        this.onNoXR();
+        return;
+      }
+    } else {
       // If `navigator.xr` or `XRSession.prototype.requestHitTest`
       // does not exist, we must display a message indicating there
       // are no valid devices.
-      this.onNoXRDevice();
+      this.onNoXR();
       return;
     }
 
@@ -81,7 +98,7 @@ class App {
    * Toggle on a class on the page to disable the "Enter AR"
    * button and display the unsupported browser message.
    */
-  onNoXRDevice() {
+  onNoXR() {
     document.body.classList.add('unsupported');
   }
 

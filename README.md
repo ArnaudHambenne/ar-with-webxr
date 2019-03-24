@@ -1,4 +1,7 @@
-# [UPDATED] Building an augmented reality application with the WebXR Device API
+>## Disclaimer: This repo is a fork of the original tutorial on [AR with WebXR](https://codelabs.developers.google.com/codelabs/ar-with-webxr) by Google Codelabs, updated to reflect recent changes in the WebXR Device API specification. I do not claim ownership of any of the resource material used in this repo, all rights reside with their original owners.
+>### That being said, the updates made to the original tutorial in this repo are entirely my own, and are in no way affiliated with, nor endorsed by the original authors. This also implies that my code may not be on par with current best practises, structural logic or conventions associated with the WebXR Device API.
+
+# Building an augmented reality application with the WebXR Device API
 
 > ### 🚨 Updated version built for Chrome 74 and up 🚨
 > The WebXR Device API is undergoing a lot of changes currently. This codelab will only work in Chrome 74 and up.

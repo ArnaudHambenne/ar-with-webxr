@@ -5,12 +5,12 @@ You will use the still-in-development [WebXR Device API](https://immersive-web.g
 
 <img src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/3f852a07a7a280d6.png" width="80%">
 
-#### What is Augmented Reality?
+### What is Augmented Reality?
 Augmented reality (AR) is a term usually used to describe the mixing of computer-generated graphics with the real world, which, in the case of phone-based Augmented Reality, means convincingly placing computer graphics over a live camera feed. In order for this effect to remain convincing as the phone moves through the world, the AR-enabled device needs to understand the world it is moving through, which may include detecting surfaces and estimating lighting of the environment. Additionally, the device also needs to determine its "pose" (position and orientation) in 3D space.
 
 Augmented reality usage has been increasing, with the popularity of AR usage in apps like selfie filters and AR-based games. Today, there are already hundreds of millions of AR-enabled smartphones, less than a year after the release of [ARCore](https://developers.google.com/ar/discover/), Google's augmented reality platform, and [ARKit](https://developer.apple.com/arkit/) by Apple. With the technology now in the hands of millions of people, initial proposals of AR extensions for the WebXR Device API can be experimentally implemented behind flags.
 
-#### What you will build
+### What you will build
 <img align="right" width="213" height="379" src="https://codelabs.developers.google.com/codelabs/ar-with-webxr/img/266f0ac0b7f505fc.png">
 In this codelab, you're going to build a web application that places a model in the real world using augmented reality. Your app will:
 
@@ -28,7 +28,7 @@ In this codelab, you're going to build a web application that places a model in 
 <br>
 
 ---
-#### What you'll learn
+### What you'll learn
 * How to use the WebXR Device API
 * How to find a surface using augmented reality hit tests
 * How to load and render a 3D model synchronized with the real world camera feed
