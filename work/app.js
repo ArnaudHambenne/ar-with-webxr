@@ -146,7 +146,7 @@ class App {
     this.camera = new THREE.PerspectiveCamera();
     this.camera.matrixAutoUpdate = false;
 
-    this.refSpace = this.session.requestReferenceSpace({type: 'stationary', subtype: 'eye-level'});
+    this.refSpace = await this.session.requestReferenceSpace({type: 'stationary', subtype: 'eye-level'});
 
     this.session.requestAnimationFrame(this.onXRFrame);
   }
